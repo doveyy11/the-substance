@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《某种物质》</title>
+    <title>《某种物质》评论可视化</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 其他CSS样式 */
+
+        /* 隐藏标题 */
+        .title {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        /* 电影简介按钮 */
+        #intro-btn {
+            font-size: 18px;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* 按钮悬停效果 */
+        #intro-btn:hover {
+            background-color: #ff1493;
+        }
+    </style>
 </head>
 <body>
     <!-- 背景 -->
@@ -22,12 +47,25 @@
 
     <!-- 主内容 -->
     <main class="content">
-        <h1 class="title">《某种物质》评论分析</h1>
-        <button id="bgm-btn" class="bgm-button">🎵 播放音乐</button>
+        <button id="intro-btn">点击查看电影简介</button>
+        <h1 class="title" id="movie-intro">
+            《某种物质》是一部科幻题材的心理惊悚片，讲述了在未来世界，一种神秘的物质被发现，并迅速改变了人类的生活方式。这种物质不仅能极大地提升人类的智力，还能改变情绪、思维和感知世界的方式。然而，这种变革带来了意想不到的后果，社会陷入了前所未有的混乱和道德困境。
+        </h1>
     </main>
 
     <audio id="bgm" src="bgm.mp3" loop></audio>
 
-    <script src="script.js"></script>
+    <script>
+        // 获取按钮和电影简介元素
+        const introBtn = document.getElementById('intro-btn');
+        const movieIntro = document.getElementById('movie-intro');
+
+        // 按钮点击事件
+        introBtn.addEventListener('click', function() {
+            // 改变电影简介的透明度，使其浮现出来
+            movieIntro.style.opacity = 1;
+        });
+    </script>
 </body>
 </html>
+
